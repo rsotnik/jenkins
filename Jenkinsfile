@@ -3,10 +3,10 @@ node {
           checkout scm
           docker.image('node').inside {
             stage "Checkout and build deps"
-				sh "export http_proxy http://10.151.249.77:8080"  
-				sh "export https_proxy http://10.151.249.77:8080" 
-				sh "export HTTP_PROXY http://10.151.249.77:8080"  
-				sh "export HTTPS_PROXY http://10.151.249.77:8080"  
+				sh "http_proxy=http://10.151.249.77:8080"  
+				sh "https_proxy=http://10.151.249.77:8080" 
+				sh "HTTP_PROXY=http://10.151.249.77:8080"  
+				sh "HTTPS_PROXY=http://10.151.249.77:8080"  
 				
 				sh "npm config set proxy  http://10.151.249.77:8080"
 				sh "npm config set https-proxy  http://10.151.249.77:8080"
