@@ -6,6 +6,6 @@ node {
                 sh "npm install"
 
             stage "Test and validate"
-                sh "npm install gulp-cli && ./node_modules/.bin/gulp"
+                sh "npm test"
           }
 }
