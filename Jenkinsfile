@@ -1,4 +1,9 @@
 node {
+	
+  	def nodeHome = tool name: 'NodeJS'
+  	sh "${nodeHome}/bin/node -v"
+
+
 	stage "Prepare environment"
   		checkout scm
 
