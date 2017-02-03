@@ -36,5 +36,5 @@ node {
 		mongoContainer.stop()
 	
 	stage "Stopping the RabbitMQ container"
-          
+          	rabbitMQContainer.stop()
 }
