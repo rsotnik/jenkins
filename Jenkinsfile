@@ -10,7 +10,7 @@ node {
 	
 	stage "Starting the RabbitMQ container"
 		def rabbitMQImage = docker.image("rabbitmq:3-management")
-		def rabbitMQContainer = rabbitMQImage.run("-d --name rabbitmq")
+		def rabbitMQContainer = rabbitMQImage.run("-d -p 5672:5672 --name rabbitmq")
 
 
 	stage "Prepare environment"
