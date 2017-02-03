@@ -1,7 +1,12 @@
 node {
 	
-  	def nodeHome = tool name: 'NodeJS'
-  	sh "${nodeHome}/bin/node -v"
+	stage "Checking Node"	
+  		def nodeHome = tool name: 'NodeJS'
+  		sh "${nodeHome}/bin/node -v"
+	
+	stage "Starting the MongoDB container"
+		def mongoImage = docker.image("mongo")
+		def mongoContainer = mongoImage.run("--name thub-mongo -p 27017:27017 -d mongo")
 
 
 	stage "Prepare environment"
