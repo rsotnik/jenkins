@@ -7,6 +7,10 @@ node {
 	stage "Starting the MongoDB container"
 		def mongoImage = docker.image("mongo")
 		def mongoContainer = mongoImage.run("--name thub-mongo -p 27017:27017 -d mongo")
+	
+	stage "Starting the RabbitMQ container"
+		def rabbitMQImage = docker.image("rabbitmq:3-management")
+		def rabbitMQContainer = rabbitMQImage.run("-d --name rabbitmq")
 
 
 	stage "Prepare environment"
@@ -30,5 +34,7 @@ node {
 
 	stage "Stopping the MongoDB Container"
 		mongoContainer.stop()
+	
+	stage "Stopping the RabbitMQ container"
           
 }
