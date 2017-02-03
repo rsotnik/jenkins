@@ -27,5 +27,8 @@ node {
 
 	stage "Test and validate"
                 sh "npm test"
+
+	stage "Stopping the MongoDB Container"
+		mongoContainer.stop
           
 }
