@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 
+let test = require('./spec/helpers.js').test;
+
 let p = require('./package.json');
 
 app.get('/', function (req, res) {
@@ -14,5 +16,6 @@ app.post('/', function (req, res) {
 });
 
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000! With: ' + p.toString());
+  //test(12);
+  console.log('Example app listening on port 3000! With: ' + JSON.stringify(p));
 });
